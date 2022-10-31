@@ -1,5 +1,7 @@
 ## Консольні команди
 
+Створюємо image
+
 `docker build -t spalamar/nodejs-app:v1 .`
 
 Запускаємо контейнер з створеного image, встановлюємо порт 80, обмеження CPU 1 ядро, memory 512mb
