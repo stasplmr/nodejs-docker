@@ -20,9 +20,9 @@ jobs:
     - name: Pull the Docker image
       run: docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/nodejs-app 
     - name: Run the Docker image
-      run: docker run -d -p 80:80 ${{ secrets.DOCKER_HUB_USERNAME }}/nodejs-app nginx -g 'daemon off;' 
+      run: docker run -d -p 80:80 ${{ secrets.DOCKER_HUB_USERNAME }}/nodejs-app
     - name: curl
       uses: wei/curl@master
       with:
-        args: http://localhost:80
+        args: http://127.0.0.1:80
         
