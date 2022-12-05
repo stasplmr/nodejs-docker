@@ -22,7 +22,7 @@ jobs:
     - name: Run the Docker image
       run: docker run -d -p 80:80 ${{ secrets.DOCKER_HUB_USERNAME }}/nodejs-app
     - name: curl
-      uses: wei/curl@master
-      with:
-        args: http://127.0.0.1:80
+      run: |
+        sleep 5
+        curl http://localhost:80
         
