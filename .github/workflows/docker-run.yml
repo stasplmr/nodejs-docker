@@ -22,7 +22,12 @@ jobs:
     - name: Run the Docker image
       run: docker run -d -p 80:80 ${{ secrets.DOCKER_HUB_USERNAME }}/nodejs-app 
     - name: curl
-      uses: wei/curl@master
-      with:
-        args: http://localhost:80
+      run: |
+        CODE=`curl --write-out '%{http_code}' \
+        --request GET \
+        --url 'http://localhost:80'`
+        if [ $CODE!="200" ] 
+        then echo "SUCCESS"
+        else echo "FAILURE"
+        fi
         
