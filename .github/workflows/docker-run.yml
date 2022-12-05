@@ -25,7 +25,7 @@ jobs:
       run: |
         CODE=`curl --write-out '%{http_code}' \
         --request GET \
-        --url 'http://localhost:80'`
+        --url 'https://localhost:80'`
         if [ $CODE!="200" ] 
         then echo "SUCCESS"
         else echo "FAILURE"
