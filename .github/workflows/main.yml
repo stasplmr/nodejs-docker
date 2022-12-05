@@ -61,7 +61,7 @@ jobs:
     - name: Login to Dockerhub
       run: docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
     - name: Run the Docker image
-      run: docker run --name ${{ secrets.DOCKER_HUB_USERNAME }}/nodejs-app:latest -p 80:80 -d
+      run: docker run --name ${{ secrets.DOCKER_HUB_USERNAME }}/nodejs-app:latest -p 80:80
     - name: Curl the port
       run: curl http://localhost:8080/
     
