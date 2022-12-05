@@ -21,6 +21,8 @@ jobs:
       run: docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/nodejs-app 
     - name: Run the Docker image
       run: docker run -d -p 80:80 ${{ secrets.DOCKER_HUB_USERNAME }}/nodejs-app 
-    - name: Curl the port
-      run: |
-        curl -X GET "http://localhost:80/"
+    - name: curl
+      uses: wei/curl@master
+      with:
+        args: https://localhost:80
+        
