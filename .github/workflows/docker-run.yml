@@ -21,6 +21,8 @@ jobs:
       run: docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/nodejs-app 
     - name: Run the Docker image
       run: docker run -d -p 80:80 ${{ secrets.DOCKER_HUB_USERNAME }}/nodejs-app nginx -g 'daemon off;' 
-    - name: test
-      run: docker ps
+    - name: curl
+      uses: wei/curl@master
+      with:
+        args: http://localhost:80
         
